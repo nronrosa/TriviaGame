@@ -1,0 +1,58 @@
+.background {
+    background-image: url("../images/hp-background.jpg");
+    background-repeat: repeat;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.hp-logo {
+    background-color: aliceblue;
+}
+
+.emblem {
+    background-image: Url("../images/emblem-sm.png");
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+    background-position: center;
+}
+
+.light-background {
+    background-color: aliceblue;
+}
+
+.timer {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 20px;
+}
+
+.questions {
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.choices {
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+}
+.results-correct, .results-incorrect, .results-missed  {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.start {
+    font-size: 50px;
+    margin: 25px;
+}
+
+#floating-background {
+    margin: 30px;
+}
+
+#button {
+    text-align: center;
+}
