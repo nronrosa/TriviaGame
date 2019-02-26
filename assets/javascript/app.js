@@ -8,7 +8,8 @@ $(document).ready(function () {
     var tip = "";
     var seconds = 6;
     var intervalId;
-    var didUserAnwer = true; 
+    var userAnswer;
+    var didUserPlay;
 
     // var object array for questions
     // nested answer array?
@@ -104,7 +105,7 @@ $(document).ready(function () {
         stopCount();
         clearQ();
         answerCount();
-        didUserAnwer = true; 
+        didUserPlay = true;
         console.log("ChoicesA onclick timerIsOn: " + timer_is_on);
         correctAnswer = questions[qIndex].answer;
         // console.log("rightanswer " + questions[qIndex].answer);
@@ -132,7 +133,7 @@ $(document).ready(function () {
             $(".results-incorrect").text("INcorrect!");
             $(".results-missed").text("");
             console.log("wrong answer/ count as wrong/reset timer / move to next question");
-          
+
         }
 
     });
@@ -155,14 +156,14 @@ $(document).ready(function () {
     function answerCount() {
         if (!timer_is_on) {
             timer_is_on = 1;
-            c = 5;
+            c = 3;
             timedCount();
         }
     }
     function startCount() {
         if (!timer_is_on) {
             timer_is_on = 1;
-            c = 15;
+            c = 10;
             timedCount();
         }
     }
@@ -171,19 +172,12 @@ $(document).ready(function () {
         timer_is_on = 0;
     }
 
+
     function nextQ() {
         debugger;
         qIndex++;
-        if (c !== 0 && qIndex >= questions.length && didUserAnwer) {
-            // if (qIndex >= questions.length && didUserAnwer) {
-            // display gameboard AND start over button
-            $(".results-correct").text("Number of Correct answers: " + correct);
-            $(".results-incorrect").text("Number of Incorrect answers: " + incorrect);
-            $(".results-missed").text("Number of Missed answers: " + missed);
-            clearQ();
-            // stopCount();
-        }
-        else if (c === 0 && didUserAnwer) {
+        if (c === 0 && didUserPlay === false) {
+            console.log("NextQ timerIsOn: " + timer_is_on);
             missed++;
             stopCount();
             $(".results-correct").text("");
@@ -192,10 +186,22 @@ $(document).ready(function () {
             // ...initiate the stop function.
             // $(".results-correct").append(questions[qIndex].choices[userAnswer]);
             clearQ();
+
             // debugger;
+
         }
         // if end of array end the game
+        else if (c !== 0 && qIndex >= questions.length && didUserPlay) {
+            console.log("timerIsOn: " + timer_is_on);
+            // display gameboard AND start over button
+            $(".results-correct").text("Number of Correct answers: " + correct);
+            $(".results-incorrect").text("Number of Incorrect answers: " + incorrect);
+            $(".results-missed").text("Number of Missed answers: " + missed);
+            clearQ();
+            // stopCount();
+        }
         else {
+            console.log("timerIsOn: " + timer_is_on);
             // if array is still in play continue game 
             console.log("time up for this question / move on to next")
 
