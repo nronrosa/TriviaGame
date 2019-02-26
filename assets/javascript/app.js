@@ -102,9 +102,7 @@ $(document).ready(function () {
     // // did user select correct answer
     $(".choicesA").on("click", function () {
         debugger;
-        stopCount();
-        clearQ();
-        answerCount();
+
         didUserPlay = true;
         console.log("ChoicesA onclick timerIsOn: " + timer_is_on);
         correctAnswer = questions[qIndex].answer;
@@ -113,9 +111,9 @@ $(document).ready(function () {
         console.log("what did user click " + userAnswer + " the right answer is " + correctAnswer);
         if (userAnswer == correctAnswer) {
             correct++;
-            // stopCount();
-            // clearQ();
-            // answerCount();
+            stopCount();
+            clearQ();
+            answerCount();
 
             $(".results-correct").text("Correct!");
             $(".results-incorrect").text("");
@@ -126,9 +124,9 @@ $(document).ready(function () {
         }
         else {
             incorrect++;
-            // stopCount();
-            // clearQ();
-            // answerCount();
+            stopCount();
+            clearQ();
+            answerCount();
             $(".results-correct").text("");
             $(".results-incorrect").text("INcorrect!");
             $(".results-missed").text("");
@@ -177,9 +175,9 @@ $(document).ready(function () {
         debugger;
         qIndex++;
         if (c === 0 && didUserPlay === false) {
-            console.log("NextQ timerIsOn: " + timer_is_on);
             missed++;
             stopCount();
+
             $(".results-correct").text("");
             $(".results-incorrect").text("");
             $(".results-missed").text("You missed.");
@@ -191,8 +189,8 @@ $(document).ready(function () {
 
         }
         // if end of array end the game
-        else if (c !== 0 && qIndex >= questions.length && didUserPlay) {
-            console.log("timerIsOn: " + timer_is_on);
+        else if (qIndex >= questions.length && didUserPlay) {
+
             // display gameboard AND start over button
             $(".results-correct").text("Number of Correct answers: " + correct);
             $(".results-incorrect").text("Number of Incorrect answers: " + incorrect);
@@ -201,14 +199,17 @@ $(document).ready(function () {
             // stopCount();
         }
         else {
-            console.log("timerIsOn: " + timer_is_on);
+
             // if array is still in play continue game 
             console.log("time up for this question / move on to next")
-
-            // stopCount();
+            // timedCount ();
+            displayQandA();
+            c = 10;
+            timedCount();
+        
         }
 
-        displayQandA();
+
     }
 
 
