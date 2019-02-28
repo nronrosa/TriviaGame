@@ -5,7 +5,6 @@ $(document).ready(function () {
     var missed = 0;
     var qIndex = 0;
     var correctAnswer = "";
-    var note = "";
     var userAnswer;
     var didUserPlay;
     var answerTransitionTimer;
@@ -81,7 +80,7 @@ $(document).ready(function () {
         startCount();
         displayQandA();
     });
-    // displayQandA();
+    
     function displayQandA() {
         $(".questions").text(questions[qIndex].q);
         $("#0").text(questions[qIndex].choices[0]);
@@ -90,10 +89,8 @@ $(document).ready(function () {
         $("#3").text(questions[qIndex].choices[3]);
     };
 
-
-    // // did user select correct answer
+    //did user select correct answer
     $(".choicesA").on("click", function () {
-        debugger;
         didUserPlay = true;
         correctAnswer = questions[qIndex].answer;
         userAnswer = $(this).attr("id");
@@ -148,12 +145,12 @@ $(document).ready(function () {
     };
 
     function nextQ() {
-        debugger;
         qIndex++;
         clearQ();
         answerTransitionTimer = 0;
         // if end of array end the game
         if (qIndex >= questions.length) {
+            debugger;
             // display gameboard AND start over button
             $(".results-correct").text("Number of Correct answers: " + correct);
             $(".results-incorrect").text("Number of Incorrect answers: " + incorrect);
@@ -163,14 +160,13 @@ $(document).ready(function () {
             // Adding a class
             a.addClass("btn btn-dark");
             // Adding a data-attribute with a value of the movie at index i
-            // a.attr("data-name", "play-again");
+            a.attr("data-name", "play-again");
             // Providing the button's text with a value of the movie at index i
-            // a.text("play again?");
+            a.text("play again?");
             // // Adding the button to the HTML
-            // $("#results-missed").append(a);
+            $(".play-again").append(a);
+            
 
-
-            // $("#play-again").append('<button type="submit" class="btn btn-default" id="submit">' + "Submit" + '</button>');
         }
         else {
             // if array is still in play continue game 
@@ -207,7 +203,6 @@ $(document).ready(function () {
         $("#3").text("");
         $(".timer").text("");
         $(".note").text("");
-        
     };
 
     // **********************************
