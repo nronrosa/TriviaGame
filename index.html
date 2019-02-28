@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Trivia Game</title>
 </head>
-
 <body class="background">
     <div id="floating-background">
         <div class="container">
@@ -20,7 +18,6 @@
                         alt="harry potter name">
                 </div>
                 <div class="col-4 emblem">
-
                 </div>
             </div>
         </div>
@@ -28,7 +25,6 @@
         <div class="container">
             <div class="row light-background">
                 <div class="col-12 timer">
-
                 </div>
                 <div class="col-12" id="button">
                     <button type="button" class="btn btn-dark start">Let the game begin!</button>
@@ -38,7 +34,9 @@
                 <div class="col-12 results-incorrect"></div>
                 <div class="col-12 results-missed"></div>
                 <div class="col-12 note"></div>
-                <div class="col-12 play-again"></div>
+                <div class="col-12 play-again">
+                    <button type="button" class="btn btn-dark end-button">Play again?</button>
+                </div>
                 <div class="col-12 choices">
                     <div class="choicesA" id="0"></div>
                     <div class="choicesA" id="1"></div>
@@ -47,9 +45,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -63,7 +59,5 @@
         crossorigin="anonymous"></script>
     <!-- my javascript/jquery file -->
     <script type="text/javascript" src="assets/javascript/app.js">  </script>
-
 </body>
-
 </html>
