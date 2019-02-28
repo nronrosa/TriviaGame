@@ -49,6 +49,10 @@
     margin: 25px;
 }
 
+.note {
+    font-size: 25px;
+}
+
 #floating-background {
     margin: 30px;
 }
@@ -56,3 +60,4 @@
 #button {
     text-align: center;
 }
+
